@@ -176,6 +176,8 @@ Verify the Installation: Open a new Command Prompt and run the following command
 java -version
 javac -version
 
+![Java version verification](Images/Java_Version.png)
+
 Using the Eclipse IDE
 Creating a New Java Project
 Launch Eclipse IDE.

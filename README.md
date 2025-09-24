@@ -136,4 +136,3 @@ This project is licensed under the MIT License – free to use, modify, and dist
 
 ---
 
-Do you want me to also merge this chunk back into the **full README** so you have just **one single final version** to paste into your repo?

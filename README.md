@@ -2,9 +2,28 @@ Campus Course & Records Manager (CCRM)
 Overview
 The Campus Course & Records Manager (CCRM) is a comprehensive, command-line based Java application designed to manage student and course records for an educational institution. It provides a simple, menu-driven interface for administrators to perform essential academic tasks such as student registration, course creation, student enrollment, grading, and data management.
 
-The application uses an in-memory data store for runtime operations and supports data persistence through CSV file import/export and a simple backup system.
+This document serves as a guide to the project and also provides foundational knowledge about the Java ecosystem, including its history, architecture, and development environment setup.
 
-Features
+Table of Contents
+Project Features
+
+Getting Started with the Project
+
+Java Platform Fundamentals
+
+A Brief History of Java
+
+Java Editions: ME vs SE vs EE
+
+The Java Architecture: JDK, JRE, and JVM
+
+Setting Up Your Development Environment
+
+Installing Java on Windows
+
+Using the Eclipse IDE
+
+Project Features
 Student Management: Add new students with unique registration numbers and list all registered students.
 
 Course Management: Create new courses, specifying details like course code, title, credits, instructor, and semester.
@@ -13,87 +32,181 @@ Enrollment System: Enroll students into courses, with built-in validation to pre
 
 Grading & Transcripts: Record marks for a student in a specific course, which automatically calculates the corresponding letter grade. Generate a full academic transcript for any student, including their GPA.
 
-Data Persistence:
+Data Persistence & Backup: Export data to CSV files for persistence and create timestamped backups for data safety.
 
-Export: Save all student, course, and enrollment data to .csv files in a data/ directory.
-
-Import: Load data from the .csv files back into the application, restoring the previous state.
-
-Backup Functionality: Create a timestamped backup of the entire data/ directory to a backups/ folder for data safety.
-
-Project Structure
-The project is organized into logical packages to separate concerns and maintain a clean architecture.
-
-src
-└── edu
-    └── ccrm
-        ├── cli          // Contains the command-line interface (Main.java)
-        ├── config       // Application configuration (AppConfig.java)
-        ├── domain       // Core data models (Student, Course, Enrollment, etc.)
-        ├── exceptions   // Custom exception classes
-        ├── io           // Services for file input/output (Import/Export, Backup)
-        └── service      // Business logic interfaces and implementations
-
-cli: The entry point of the application and all user-interaction logic.
-
-domain: Defines the core entities of the application, such as Student, Course, and Enrollment.
-
-service: Contains the business logic for managing the domain objects (e.g., StudentServiceImpl, CourseServiceImpl).
-
-io: Handles all file operations, including reading/writing CSV files and creating backups.
-
-exceptions: Defines custom exceptions for specific error scenarios, like DuplicateEnrollmentException.
-
-Getting Started
-
-Prerequisites:
+Getting Started with the Project
+Prerequisites
 Java Development Kit (JDK) 11 or higher.
 
+Eclipse IDE for Enterprise Java and Web Developers (or any other Java IDE).
+
 How to Compile and Run
-Navigate to the Source Directory: Open your terminal or command prompt and navigate to the project's root directory where the src folder is located.
+Clone the Repository:
 
-Compile the Project: Run the following command to compile all .java files. This command places the compiled .class files into an out directory.
+git clone [https://github.com/JunoJupyter-design/student-course-management-system.git](https://github.com/JunoJupyter-design/student-course-management-system.git)
 
-javac -d out $(find src -name "*.java")
+Import into Eclipse:
 
-Run the Application: Execute the compiled code by running the Main class.
+Go to File > Import....
 
-java -cp out edu.ccrm.cli.Main
+Select General > Existing Projects into Workspace.
 
-Interact with the Menu: Once running, the application will display the main menu. Simply enter the number corresponding to the desired operation.
+Browse to the cloned repository folder.
 
-==== Campus Course & Records Manager ====
-1. Add Student
-2. List Students
-3. Add Course
-4. List Courses
-5. Enroll Student in Course
-6. Record Marks for Enrollment
-7. Show Transcript (GPA)
-8. Export Data
-9. Import Data
-10. Backup Data
-0. Exit
-Enter choice:
+Click Finish.
 
-Data Storage
-Runtime Data: While the application is running, all data is stored in-memory using Java Collections (primarily HashMap).
+Run the Application:
 
-Persistent Data: To save data between sessions, use the Export Data option (8). This creates the following files:
+Locate the Main.java file in the src/edu/ccrm/cli package.
 
-data/students.csv
+Right-click the file and select Run As > Java Application.
 
-data/courses.csv
+Java Platform Fundamentals
+A Brief History of Java
+Java's journey from a project for interactive television to a globally dominant programming language is marked by continuous innovation.
 
-data/enrollments.csv
+1991: The "Green Team" at Sun Microsystems, led by James Gosling, begins work on the "Oak" language, initially intended for consumer electronics.
 
-Backups: Using the Backup Data option (10) will create a timestamped copy of the data folder inside a backups directory (e.g., backups/backup_20250924_083700).
+1995: Sun Microsystems formally releases Oak as Java 1.0, re-marketing it for the burgeoning World Wide Web with the slogan "Write Once, Run Anywhere."
 
-Key Design Principles
-Service-Oriented Architecture: Business logic is encapsulated within service classes (StudentService, CourseService), promoting modularity and separation of concerns.
+1998: Java 2 (J2SE 1.2) is released, a major upgrade that introduces the Swing graphical toolkit and the Collections framework. The platform is split into J2SE, J2EE, and J2ME.
 
-Builder Pattern: The Course object is constructed using a nested Builder, which provides a clean and readable way to create complex objects.
+2004: J2SE 5.0 is released, bringing significant language features like Generics, Annotations, and Autoboxing, which greatly improve code safety and readability.
 
-In-Memory Repository: Service implementations use HashMaps to act as an in-memory database, simplifying data access for this scale of application.
+2010: Oracle Corporation acquires Sun Microsystems, taking stewardship of the Java platform.
 
-Custom Exceptions: The application uses specific exceptions like DuplicateEnrollmentException and MaxCreditLimitExceededException to handle predictable errors gracefully.
+2014: Java SE 8 is released. This is a landmark version that introduces Lambda Expressions, the Stream API, and a new Date and Time API, revolutionizing how developers write concurrent and data-processing code.
+
+2018: Oracle introduces a new six-month release cadence, starting with Java 10. Long-Term Support (LTS) versions are designated for enterprise stability.
+
+2021: Java 17 (LTS) is released, bringing further enhancements like Sealed Classes and Pattern Matching for instanceof.
+
+Java Editions: ME vs SE vs EE
+Java is not a monolithic platform; it is divided into different editions tailored for specific types of applications.
+
+Feature
+
+Java ME (Micro Edition)
+
+Java SE (Standard Edition)
+
+Java EE (Enterprise Edition)
+
+Primary Use
+
+Java ME- Mobile devices, embedded systems, and IoT devices.
+
+Java SE- Desktop applications, servers, and console apps.
+
+Java EE- Large-scale, distributed, and web-based applications.
+
+Core API
+
+Java ME- A small subset of the Java SE API.
+
+Java SE- The core Java programming language and libraries.
+
+Java EE- Extends Java SE with APIs for enterprise features.
+
+Key Features
+
+Java ME- Limited resources, small memory footprint, low power.
+
+Java SE- Rich APIs for GUIs, networking, database access.
+
+Java EE- Web services (JAX-WS), Servlets, messaging (JMS).
+
+Example App
+
+Java ME- A simple game on an old feature phone.
+
+Java SE- This Campus Course & Records Manager project.
+
+Java EE- A large online banking or e-commerce website.
+
+The Java Architecture: JDK, JRE, and JVM
+The Java platform is built on three core components that work together to compile and run a Java application.
+
+JVM (Java Virtual Machine)
+
+What it is: An abstract computing machine that enables a computer to run a Java program. The JVM is platform-dependent, meaning there are different JVM implementations for Windows, macOS, and Linux.
+
+Role: It reads the compiled Java bytecode (the .class files) and interprets or compiles it into native machine code for the underlying operating system. This is the component that makes Java "platform-independent."
+
+JRE (Java Runtime Environment)
+
+What it is: A software package that provides the necessary libraries and the JVM to run Java applications. It is the minimum requirement to execute a Java program on a machine.
+
+Role: It combines the JVM with the core Java libraries (like java.lang, java.util, etc.) that your program's code needs to function. The JRE does not contain tools for development like compilers or debuggers.
+
+JDK (Java Development Kit)
+
+What it is: A full-featured software development kit for creating Java applications. It includes everything the JRE has, plus development tools.
+
+Role: The JDK provides the complete environment for developers. It contains the JRE to run the code, a compiler (javac) to turn .java source files into .class bytecode, a debugger (jdb), and other tools. You need the JDK to write and compile Java code.
+
+Interaction Summary: A developer writes .java code and uses the JDK to compile it into bytecode. This bytecode can then be distributed to any user who has the JRE installed. The JRE's JVM then executes that bytecode on the user's specific operating system.
+
+Setting Up Your Development Environment
+Installing Java on Windows
+Download the JDK: Go to the official Oracle Java Downloads page. Select the latest LTS version (e.g., JDK 17) and download the "x64 Installer" for Windows.
+
+Run the Installer: Execute the downloaded .msi file and follow the on-screen instructions. The JDK will typically be installed in C:\Program Files\Java\jdk-17.x.x.
+
+Configure Environment Variables:
+
+Search for "Edit the system environment variables" in the Windows Start Menu and open it.
+
+Click the "Environment Variables..." button.
+
+Under "System variables," click "New..." to create a new variable:
+
+Variable name: JAVA_HOME
+
+Variable value: C:\Program Files\Java\jdk-17.0.5 (or your specific JDK installation path)
+
+Find the Path variable in the "System variables" list, select it, and click "Edit...".
+
+Click "New" and add a new entry: %JAVA_HOME%\bin
+
+Click OK on all windows to save the changes.
+
+Verify the Installation: Open a new Command Prompt and run the following commands. They should display the installed versions.
+
+java -version
+javac -version
+
+[YOUR SCREENSHOT HERE: A screenshot of your command prompt showing the output of java -version and javac -version.]
+
+Using the Eclipse IDE
+Creating a New Java Project
+Launch Eclipse IDE.
+
+Go to File > New > Java Project.
+
+Enter a Project name (e.g., MyFirstJavaProject).
+
+Ensure the correct JRE is selected.
+
+Click Finish. The project will appear in the Package Explorer.
+
+[YOUR SCREENSHOT HERE: A screenshot of the Eclipse "New Java Project" dialog filled out.]
+
+Creating and Running a Program
+Right-click the src folder in your new project and select New > Class.
+
+Give the class a name (e.g., HelloWorld) and check the box for public static void main(String[] args).
+
+Add some code to the main method, for example: System.out.println("Hello, World!");
+
+Create a Run Configuration:
+
+Right-click the HelloWorld.java file in the Package Explorer.
+
+Select Run As > Run Configurations....
+
+In the "Java Application" section, a new configuration for your HelloWorld class should already exist. You can inspect the settings here.
+
+Click Run. The output will appear in the Console view.
+
+[YOUR SCREENSHOT HERE: A screenshot of the Eclipse IDE showing the HelloWorld.java code and the "Run Configurations" window.]

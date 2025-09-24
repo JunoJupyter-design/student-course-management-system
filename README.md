@@ -123,6 +123,8 @@ student-course-management-system/
    java -version
    javac -version
 
+   (./Images/Java_Version.png)
+
    💻 Using Eclipse
 	1.	Create new project: File > New > Java Project
 	2.	Add class: Right-click src → New > Class → Check public static void main

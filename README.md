@@ -1,19 +1,21 @@
-Campus Course & Records Manager (CCRM)
-Overview
+## Campus Course & Records Manager (CCRM)
+
+# Overview
 The Campus Course & Records Manager (CCRM) is a comprehensive, command-line based Java application designed to manage student and course records for an educational institution. It provides a simple, menu-driven interface for administrators to perform essential academic tasks such as student registration, course creation, student enrollment, grading, and data management.
 
 This document serves as a guide to the project and also provides foundational knowledge about the Java ecosystem, including its history, architecture, and development environment setup.
 
-Table of Contents
-Project Features
+## Table of Contents
+
+# Project Features
 
 Getting Started with the Project
 
 Java Platform Fundamentals
 
-A Brief History of Java
+## A Brief History of Java
 
-Java Editions: ME vs SE vs EE
+Java Editions: ME vs SE vs EE  
 
 The Java Architecture: JDK, JRE, and JVM
 
@@ -23,18 +25,23 @@ Installing Java on Windows
 
 Using the Eclipse IDE
 
-Project Features
-Student Management: Add new students with unique registration numbers and list all registered students.
+## Project Features
+# Student Management:
+Add new students with unique registration numbers and list all registered students.
 
-Course Management: Create new courses, specifying details like course code, title, credits, instructor, and semester.
+# Course Management: 
+Create new courses, specifying details like course code, title, credits, instructor, and semester.
 
-Enrollment System: Enroll students into courses, with built-in validation to prevent duplicate enrollments and to enforce a maximum credit limit (20 credits per student).
+# Enrollment System: 
+Enroll students into courses, with built-in validation to prevent duplicate enrollments and to enforce a maximum credit limit (20 credits per student).
 
-Grading & Transcripts: Record marks for a student in a specific course, which automatically calculates the corresponding letter grade. Generate a full academic transcript for any student, including their GPA.
+# Grading & Transcripts: 
+Record marks for a student in a specific course, which automatically calculates the corresponding letter grade. Generate a full academic transcript for any student, including their GPA.
 
-Data Persistence & Backup: Export data to CSV files for persistence and create timestamped backups for data safety.
+# Data Persistence & Backup: 
+Export data to CSV files for persistence and create timestamped backups for data safety.
 
-Getting Started with the Project
+## Getting Started with the Project
 Prerequisites
 Java Development Kit (JDK) 11 or higher.
 

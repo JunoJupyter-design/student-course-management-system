@@ -176,8 +176,6 @@ Verify the Installation: Open a new Command Prompt and run the following command
 java -version
 javac -version
 
-[YOUR SCREENSHOT HERE: A screenshot of your command prompt showing the output of java -version and javac -version.]
-
 Using the Eclipse IDE
 Creating a New Java Project
 Launch Eclipse IDE.
@@ -189,8 +187,6 @@ Enter a Project name (e.g., MyFirstJavaProject).
 Ensure the correct JRE is selected.
 
 Click Finish. The project will appear in the Package Explorer.
-
-[YOUR SCREENSHOT HERE: A screenshot of the Eclipse "New Java Project" dialog filled out.]
 
 Creating and Running a Program
 Right-click the src folder in your new project and select New > Class.
@@ -208,5 +204,3 @@ Select Run As > Run Configurations....
 In the "Java Application" section, a new configuration for your HelloWorld class should already exist. You can inspect the settings here.
 
 Click Run. The output will appear in the Console view.
-
-[YOUR SCREENSHOT HERE: A screenshot of the Eclipse IDE showing the HelloWorld.java code and the "Run Configurations" window.]
